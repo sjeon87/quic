@@ -41,8 +41,7 @@ namespace ns3 {
 NS_LOG_COMPONENT_DEFINE ("QuicStreamRxBuffer");
 
 QuicStreamRxItem::QuicStreamRxItem ()
-  : m_packet (0),
-  m_offset (0),
+  : m_offset (0),
   m_fin (false)
 {
 }

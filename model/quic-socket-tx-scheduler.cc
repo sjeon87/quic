@@ -197,8 +197,8 @@ QuicSocketTxScheduler::GetNewSegment (uint32_t numBytes)
   NS_LOG_FUNCTION (this << numBytes);
 
   bool firstSegment = true;
-  Ptr<Packet> currentPacket = 0;
-  Ptr<QuicSocketTxItem> currentItem = 0;
+  Ptr<Packet> currentPacket;
+  Ptr<QuicSocketTxItem> currentItem;
   Ptr<QuicSocketTxItem> outItem = CreateObject<QuicSocketTxItem>();
   outItem->m_isStream = true;   // Packets sent with this method are always stream packets
   outItem->m_isStream0 = false;

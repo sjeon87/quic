@@ -40,8 +40,7 @@ namespace ns3 {
 NS_LOG_COMPONENT_DEFINE ("QuicSocketRxBuffer");
 
 QuicSocketRxItem::QuicSocketRxItem ()
-  : m_packet (0),
-  m_offset (0),
+  : m_offset (0),
   m_fin (false)
 {
 }

@@ -38,7 +38,6 @@ NS_LOG_COMPONENT_DEFINE ("QuicStreamTxBuffer");
 
 QuicStreamTxItem::QuicStreamTxItem ()
   : m_packetNumberSequence (0),
-    m_packet (0),
     m_lost (false),
     m_retrans (false),
     m_sacked (false),
@@ -224,8 +223,8 @@ QuicStreamTxBuffer::GetNewSegment (uint32_t numBytes)
   NS_LOG_FUNCTION (this << numBytes);
 
   bool toInsert = false;
-  Ptr<Packet> currentPacket = 0;
-  Ptr<QuicStreamTxItem> currentItem = 0;
+  Ptr<Packet> currentPacket;
+  Ptr<QuicStreamTxItem> currentItem;
   Ptr<QuicStreamTxItem> outItem = CreateObject<QuicStreamTxItem> ();
   outItem->m_packet = Create<Packet> ();
   uint32_t outItemSize = 0;

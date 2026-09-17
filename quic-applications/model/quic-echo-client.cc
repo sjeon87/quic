@@ -90,19 +90,17 @@ QuicEchoClient::QuicEchoClient ()
 {
   NS_LOG_FUNCTION (this);
   m_sent = 0;
-  m_socket = 0;
   m_sendEvent = EventId ();
-  m_data = 0;
+  m_data = nullptr;
   m_dataSize = 0;
 }
 
 QuicEchoClient::~QuicEchoClient ()
 {
   NS_LOG_FUNCTION (this);
-  m_socket = 0;
 
   delete [] m_data;
-  m_data = 0;
+  m_data = nullptr;
   m_dataSize = 0;
 }
 
@@ -192,7 +190,7 @@ QuicEchoClient::StopApplication ()
     {
       m_socket->Close ();
       m_socket->SetRecvCallback (MakeNullCallback<void, Ptr<Socket> > ());
-      m_socket = 0;
+      m_socket = nullptr;
     }
 
   Simulator::Cancel (m_sendEvent);
@@ -209,7 +207,7 @@ QuicEchoClient::SetDataSize (uint32_t dataSize)
   // neither will we.
   //
   delete [] m_data;
-  m_data = 0;
+  m_data = nullptr;
   m_dataSize = 0;
   m_size = dataSize;
 }

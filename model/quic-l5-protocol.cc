@@ -73,14 +73,10 @@ QuicL5Protocol::GetTypeId (void)
 }
 
 QuicL5Protocol::QuicL5Protocol ()
-  : m_socket (0),
-  m_node (0),
-  m_connectionId ()
+  : m_connectionId ()
 {
   NS_LOG_FUNCTION_NOARGS ();
   NS_LOG_LOGIC ("Made a QuicL5Protocol " << this);
-  m_socket = 0;
-  m_node = 0;
   m_connectionId = 0;
 }
 

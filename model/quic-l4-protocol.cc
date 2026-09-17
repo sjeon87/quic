@@ -64,9 +64,7 @@ NS_OBJECT_ENSURE_REGISTERED (QuicUdpBinding);
 NS_LOG_COMPONENT_DEFINE ("QuicL4Protocol");
 
 QuicUdpBinding::QuicUdpBinding ()
-  : m_budpSocket (0),
-  m_budpSocket6 (0),
-  m_quicSocket (nullptr),
+  : m_quicSocket (nullptr),
   m_listenerBinding (false)
 {
   NS_LOG_FUNCTION (this);
@@ -76,8 +74,6 @@ QuicUdpBinding::~QuicUdpBinding ()
 {
   NS_LOG_FUNCTION (this);
 
-  m_budpSocket = 0;
-  m_budpSocket6 = 0;
   m_quicSocket = nullptr;
   m_listenerBinding = false;
 }
@@ -141,8 +137,7 @@ QuicL4Protocol::GetTypeId (void)
 }
 
 QuicL4Protocol::QuicL4Protocol ()
-  : m_node (0),
-  m_0RTTHandshakeStart (false),
+  : m_0RTTHandshakeStart (false),
   m_isServer (false),
   m_endPoints (new Ipv4EndPointDemux ()),
   m_endPoints6 (new Ipv6EndPointDemux ())
@@ -624,7 +619,7 @@ QuicL4Protocol::DoDispose (void)
   NS_LOG_FUNCTION (this);
   m_quicUdpBindingList.clear ();
 
-  m_node = 0;
+  m_node = nullptr;
 //  m_downTarget.Nullify ();
 //  m_downTarget6.Nullify ();
   IpL4Protocol::DoDispose ();

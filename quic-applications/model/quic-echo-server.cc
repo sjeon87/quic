@@ -69,8 +69,6 @@ QuicEchoServer::QuicEchoServer ()
 QuicEchoServer::~QuicEchoServer ()
 {
   NS_LOG_FUNCTION (this);
-  m_socket = 0;
-  m_socket6 = 0;
 }
 
 void

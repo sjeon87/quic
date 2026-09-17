@@ -44,7 +44,6 @@ TypeId QuicSocketFactory::GetTypeId (void)
 }
 
 QuicSocketFactory::QuicSocketFactory ()
-  : m_quicl4 (0)
 {
   NS_LOG_INFO ("Creating QuicSocketFactory");
   m_sockets = std::vector<Ptr<QuicSocketBase> > ();
@@ -72,7 +71,7 @@ QuicSocketFactory::CreateSocket (void)
 void
 QuicSocketFactory::DoDispose (void)
 {
-  m_quicl4 = 0;
+  m_quicl4 = nullptr;
   SocketFactory::DoDispose ();
 }
 

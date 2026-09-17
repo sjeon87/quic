@@ -428,11 +428,8 @@ QuicSocketState::QuicSocketState (const QuicSocketState &other)
 
 QuicSocketBase::QuicSocketBase (void)
   : QuicSocket (),
-    m_endPoint (0),
-    m_endPoint6 (0),
-    m_node (0),
-    m_quicl4 (0),
-    m_quicl5 (0),
+    m_endPoint (nullptr),
+    m_endPoint6 (nullptr),
     m_socketState (
       IDLE),
     m_transportErrorCode (
@@ -464,8 +461,6 @@ QuicSocketBase::QuicSocketBase (void)
       Seconds (30.0)),
     m_drainingPeriodTimeout (Seconds (90.0)),
     m_closeOnEmpty (false),
-    m_congestionControl (
-      0),
     m_lastRtt (Seconds (0.0)),
     m_queue_ack (false),
     m_numPacketsReceivedSinceLastAckSent (0),
@@ -529,11 +524,10 @@ QuicSocketBase::QuicSocketBase (void)
 
 QuicSocketBase::QuicSocketBase (const QuicSocketBase& sock)   // Copy constructor
   : QuicSocket (sock),
-    m_endPoint (0),
-    m_endPoint6 (0),
+    m_endPoint (nullptr),
+    m_endPoint6 (nullptr),
     m_node (sock.m_node),
     m_quicl4 (sock.m_quicl4),
-    m_quicl5 (0),
     m_socketState (LISTENING),
     m_transportErrorCode (sock.m_transportErrorCode),
     m_serverBusy (sock.m_serverBusy),
@@ -625,7 +619,7 @@ QuicSocketBase::~QuicSocketBase (void)
       m_quicl4->DeAllocate (m_endPoint6);
       NS_ASSERT (!m_endPoint6);
     }
-  m_quicl4 = 0;
+  m_quicl4 = nullptr;
   //CancelAllTimers ();
   m_pacingTimer.Cancel ();
 }

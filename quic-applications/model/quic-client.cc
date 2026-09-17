@@ -82,7 +82,6 @@ QuicClient::QuicClient ()
 {
   NS_LOG_FUNCTION (this);
   m_sent = 0;
-  m_socket = 0;
   m_lastUsedStream = 1;
   m_sendEvent = EventId ();
 }
@@ -174,7 +173,7 @@ QuicClient::StopApplication (void)
   if (m_socket)
     {
       m_socket->Close ();
-      m_socket = 0;
+      m_socket = nullptr;
     }
 }
 
