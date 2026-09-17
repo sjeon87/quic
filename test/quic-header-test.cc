@@ -23,13 +23,13 @@
  */
 
 #include "ns3/test.h"
-#include "ns3/core-module.h"
 #include "ns3/packet.h"
 #include "ns3/log.h"
 #include <vector>
 #include <stdio.h>
 #include <string.h>
 
+#include "ns3/random-variable-stream.h"
 #include "ns3/quic-socket-rx-buffer.h"
 #include "ns3/quic-stream-rx-buffer.h"
 #include "ns3/buffer.h"

@@ -67,7 +67,6 @@
 #include <algorithm>
 #include <vector>
 #include <sstream>
-#include <ns3/core-module.h>
 
 namespace ns3 {
 

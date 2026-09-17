@@ -37,7 +37,7 @@
 #include "ns3/arp-l3-protocol.h"
 #include "ns3/internet-stack-helper.h"
 #include "quic-helper.h"
-#include "ns3/ipv4-global-routing.h"
+#include "ns3/global-routing.h"
 #include "ns3/ipv4-list-routing-helper.h"
 #include "ns3/ipv4-static-routing-helper.h"
 #include "ns3/ipv4-global-routing-helper.h"
