@@ -98,12 +98,6 @@ QuicUdpBinding::GetTypeId (void)
   return tid;
 }
 
-TypeId
-QuicUdpBinding::GetInstanceTypeId (void) const
-{
-  return GetTypeId ();
-}
-
 
 
 #undef NS_LOG_APPEND_CONTEXT
